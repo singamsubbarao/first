@@ -1,82 +1,23 @@
-# This is a basic workflow to help you get started with Actions
+name : complex
 
-name: ComplexWorkflow
+on : push
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  #workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   ubuntu:
-    name: First Job
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    runs-on : ubuntu-latest
     steps:
-      - name: Step One
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      
-      - name: Step Two
-        run: env | sort
+    - run: date
   windows:
-    name: Second Job
-    # The type of runner that the job will run on
-    runs-on: windows-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    runs-on : windows-latest
     steps:
-      - name: Step One
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      
-      - name: Step Two
-        run: "Get-ChildItem Env: | Sort-Object Name"
-        
+    - run: date
   macos:
-      name: Third Job
-    # The type of runner that the job will run on
-      runs-on: Macos-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-      steps:
-        - name: Step One
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v3
-      
-       # - name: Step Two
-       #  run: "Get-ChildItem Env: | Sort-Object Name"
+    runs-on : macos-latest
+    steps:
+    - run: date
   depends:
-      needs: [ubuntu, windows, macos]
-      name: Fourth Job
-    # The type of runner that the job will run on
-      runs-on: Macos-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-      steps:
-        - name: Step One
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v3
-      
-       # - name: Step Two
-       #   run: "Get-ChildItem Env: | Sort-Object Name"
-
-      # Runs a single command using the runners shell
-        - name: Run a one-line script
-          run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-        - name: Run a multi-line script
-          run: |
-            echo Add other actions to build,
-            echo test, and deploy your project.
+    needs : [ubuntu,windows,macos]
+    runs-on : macos-latest
+    steps:
+    - run: date
+     
