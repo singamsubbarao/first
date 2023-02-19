@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : checkout the code
-      uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Python Syntax Checker
-      uses: cclauss/Find-Python-syntax-errors-action@v0.2.0# This workflow will install Python dependencies, run tests and lint with a single version of Python
+        uses: cclauss/Find-Python-syntax-errors-action@v0.2.0# This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
